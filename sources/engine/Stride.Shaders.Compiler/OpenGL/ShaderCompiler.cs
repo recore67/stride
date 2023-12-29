@@ -119,14 +119,10 @@ namespace Stride.Shaders.Compiler.OpenGL
                 switch (Platform.Type)
                 {
                     case PlatformType.Windows:
-                    case PlatformType.UWP:
                         filename = @"win-x64\glslangValidator.exe";
                         break;
                     case PlatformType.Linux:
                         filename = @"linux-x64/glslangValidator.bin";
-                        break;
-                    case PlatformType.macOS:
-                        filename = @"osx-x64/glslangValidator.bin";
                         break;
                     default:
                         throw new PlatformNotSupportedException();

@@ -34,31 +34,8 @@ namespace Stride.Core
         Windows,
 
         /// <summary>
-        /// The android OS.
-        /// </summary>
-        Android,
-
-#pragma warning disable SA1300 // Element must begin with upper-case letter
-        /// <summary>
-        /// The iOS.
-        /// </summary>
-        iOS,
-#pragma warning restore SA1300 // Element must begin with upper-case letter
-
-        /// <summary>
-        /// The Universal Windows Platform (UWP).
-        /// </summary>
-        UWP,
-
-        /// <summary>
         /// The Linux OS.
         /// </summary>
         Linux,
-
-#pragma warning disable SA1300 // Element must begin with upper-case letter
-        /// <summary>
-        /// macOS
-        /// </summary>
-        macOS,
     }
 }

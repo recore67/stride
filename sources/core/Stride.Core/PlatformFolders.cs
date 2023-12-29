@@ -94,71 +94,33 @@ namespace Stride.Core
         [NotNull]
         private static string GetApplicationLocalDirectory()
         {
-#if STRIDE_PLATFORM_ANDROID
-            var directory = Path.Combine(PlatformAndroid.Context.FilesDir.AbsolutePath, "local");
-            Directory.CreateDirectory(directory);
-            return directory;
-#elif STRIDE_PLATFORM_UWP
-            return Windows.Storage.ApplicationData.Current.LocalFolder.Path;
-#elif STRIDE_PLATFORM_IOS
-            var directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", "Local");
-            Directory.CreateDirectory(directory);
-            return directory;
-#else
             // TODO: Should we add "local" ?
             var directory = Path.Combine(GetApplicationBinaryDirectory(), "local");
             Directory.CreateDirectory(directory);
             return directory;
-#endif
         }
 
         [NotNull]
         private static string GetApplicationRoamingDirectory()
         {
-#if STRIDE_PLATFORM_ANDROID
-            var directory = Path.Combine(PlatformAndroid.Context.FilesDir.AbsolutePath, "roaming");
-            Directory.CreateDirectory(directory);
-            return directory;
-#elif STRIDE_PLATFORM_UWP
-            return Windows.Storage.ApplicationData.Current.RoamingFolder.Path;
-#elif STRIDE_PLATFORM_IOS
-            var directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", "Roaming");
-            Directory.CreateDirectory(directory);
-            return directory;
-#else
             // TODO: Should we add "local" ?
             var directory = Path.Combine(GetApplicationBinaryDirectory(), "roaming");
             Directory.CreateDirectory(directory);
             return directory;
-#endif
         }
 
         [NotNull]
         private static string GetApplicationCacheDirectory()
         {
-#if STRIDE_PLATFORM_ANDROID
-            var directory = Path.Combine(PlatformAndroid.Context.FilesDir.AbsolutePath, "cache");
-#elif STRIDE_PLATFORM_UWP
-            var directory = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "cache");
-#elif STRIDE_PLATFORM_IOS
-            var directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", "Caches");
-#else
             // TODO: Should we add "local" ?
             var directory = Path.Combine(GetApplicationBinaryDirectory(), "cache");
-#endif
             Directory.CreateDirectory(directory);
             return directory;
         }
 
         private static string GetApplicationExecutablePath()
         {
-#if STRIDE_PLATFORM_ANDROID
-            return PlatformAndroid.Context.PackageCodePath;
-#elif STRIDE_PLATFORM_DESKTOP || STRIDE_PLATFORM_MONO_MOBILE
-            return Assembly.GetEntryAssembly()?.Location;
-#else
             return null;
-#endif
         }
 
         [NotNull]
@@ -170,25 +132,13 @@ namespace Stride.Core
         [NotNull]
         private static string GetApplicationTemporaryDirectory()
         {
-#if STRIDE_PLATFORM_ANDROID
-            return PlatformAndroid.Context.CacheDir.AbsolutePath;
-#elif STRIDE_PLATFORM_UWP
-            return Windows.Storage.ApplicationData.Current.TemporaryFolder.Path;
-#elif STRIDE_PLATFORM_IOS
-            return Path.Combine (Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "tmp");
-#else
             return Path.GetTempPath();
-#endif
         }
 
         [NotNull]
         private static string GetApplicationBinaryDirectory()
         {
-#if STRIDE_PLATFORM_ANDROID
-            return GetApplicationExecutableDirectory();
-#else
             return Path.GetDirectoryName(typeof(PlatformFolders).Assembly.Location);
-#endif
         }
 
         private static string GetApplicationExecutableDirectory()
@@ -214,15 +164,7 @@ namespace Stride.Core
         [NotNull]
         private static string GetApplicationDataDirectory()
         {
-#if STRIDE_PLATFORM_ANDROID
-            return Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/Android/data/" + PlatformAndroid.Context.PackageName + "/data";
-#elif STRIDE_PLATFORM_IOS
-            return Foundation.NSBundle.MainBundle.BundlePath + "/data";
-#elif STRIDE_PLATFORM_UWP
-            return Windows.ApplicationModel.Package.Current.InstalledLocation.Path + @"\data";
-#else
             return Path.Combine(GetApplicationBinaryDirectory(), "data");
-#endif
         }
     }
 }

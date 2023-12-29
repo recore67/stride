@@ -137,20 +137,8 @@ namespace Stride.Assets
                 case PlatformType.Windows:
                     configPlatform = ConfigPlatforms.Windows;
                     break;
-                case PlatformType.Android:
-                    configPlatform = ConfigPlatforms.Android;
-                    break;
-                case PlatformType.iOS:
-                    configPlatform = ConfigPlatforms.iOS;
-                    break;
-                case PlatformType.UWP:
-                    configPlatform = ConfigPlatforms.UWP;
-                    break;
                 case PlatformType.Linux:
                     configPlatform = ConfigPlatforms.Linux;
-                    break;
-                case PlatformType.macOS:
-                    configPlatform = ConfigPlatforms.macOS;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(platform), platform, null);

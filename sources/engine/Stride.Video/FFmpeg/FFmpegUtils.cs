@@ -22,7 +22,7 @@ namespace Stride.Video.FFmpeg
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool CheckPlatformSupport()
         {
-            return (Platform.Type == PlatformType.Windows || Platform.Type == PlatformType.Android);
+            return (Platform.Type == PlatformType.Windows);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

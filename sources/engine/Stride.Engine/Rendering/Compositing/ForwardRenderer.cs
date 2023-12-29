@@ -155,12 +155,6 @@ namespace Stride.Rendering.Compositing
                 {
                     logger.Warning("Multisample count of " + (int)MSAALevel + " samples not supported. Falling back to highest supported sample count of " + (int)actualMultisampleCount + " samples.");
                 }
-
-                if (Platform.Type == PlatformType.iOS)
-                {
-                    // MSAA is not supported on iOS currently because OpenTK doesn't expose "GL.BlitFramebuffer()" on iOS for some reason.
-                    actualMultisampleCount = MultisampleCount.None;
-                }
             }
 
             var camera = Context.GetCurrentCamera();
@@ -251,9 +245,7 @@ namespace Stride.Rendering.Compositing
             {
                 if (PostEffects.RequiresNormalBuffer)
                 {
-                    renderOutputValidator.Add<NormalTargetSemantic>(Platform.Type == PlatformType.Android || Platform.Type == PlatformType.iOS
-                        ? PixelFormat.R16G16B16A16_Float
-                        : PixelFormat.R10G10B10A2_UNorm);
+                    renderOutputValidator.Add<NormalTargetSemantic>(PixelFormat.R10G10B10A2_UNorm);
                 }
 
                 if (PostEffects.RequiresSpecularRoughnessBuffer)

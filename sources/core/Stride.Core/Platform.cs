@@ -14,31 +14,13 @@ namespace Stride.Core
     /// </summary>
     public static class Platform
     {
-#if STRIDE_PLATFORM_UWP
-        /// <summary>
-        /// The current running <see cref="PlatformType"/>.
-        /// </summary>
-        public static readonly PlatformType Type = PlatformType.UWP;
-#elif STRIDE_PLATFORM_ANDROID
-        /// <summary>
-        /// The current running <see cref="PlatformType"/>.
-        /// </summary>
-        public static readonly PlatformType Type = PlatformType.Android;
-#elif STRIDE_PLATFORM_IOS
-        /// <summary>
-        /// The current running <see cref="PlatformType"/>.
-        /// </summary>
-        public static readonly PlatformType Type = PlatformType.iOS;
-#else
         /// <summary>
         /// The current running <see cref="PlatformType"/>.
         /// </summary>
         public static readonly PlatformType Type
             = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? PlatformType.Windows
             : RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? PlatformType.Linux
-            : RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? PlatformType.macOS
             : PlatformType.Windows; // For now we use Windows as fallback, but it might be better to throw an exception?
-#endif
 
         /// <summary>
         /// Gets a value indicating whether the running platform is windows desktop.

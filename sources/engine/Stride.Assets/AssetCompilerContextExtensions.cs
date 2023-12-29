@@ -45,15 +45,9 @@ namespace Stride.Assets
             switch (platformType)
             {
                 case PlatformType.Windows:
-                case PlatformType.UWP:
                     return GraphicsPlatform.Direct3D11;
-                case PlatformType.Android:
-                case PlatformType.iOS:
-                    return GraphicsPlatform.OpenGLES;
                 case PlatformType.Linux:
                     return GraphicsPlatform.OpenGL;
-                case PlatformType.macOS:
-                    return GraphicsPlatform.Vulkan;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

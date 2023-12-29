@@ -42,15 +42,6 @@ namespace Stride.Games.Testing
                 case PlatformType.Windows:
                     platformName = "Windows";
                     break;
-                case PlatformType.Android:
-                    platformName = "Android";
-                    break;
-                case PlatformType.iOS:
-                    platformName = "iOS";
-                    break;
-                case PlatformType.UWP:
-                    platformName = "UWP";
-                    break;
                 default:
                     platformName = "";
                     break;
@@ -91,15 +82,10 @@ namespace Stride.Games.Testing
 
             // Wait up to one minute
             var waitMs = 60 * 1000;
-            switch (platform)
-            {
-                case PlatformType.Android:
-                    waitMs *= 2;
-                    break;
-                case PlatformType.iOS:
-                    waitMs *= 2;
-                    break;
-            }
+            //switch (platform)
+            //{
+
+            //}
 
             if (!ev.WaitOne(waitMs))
             {

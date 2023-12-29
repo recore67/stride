@@ -364,9 +364,9 @@ namespace Stride.Graphics.Tests
         [SkippableTheory, MemberData(nameof(ImageFileTypes))]
         public void TestLoadSave(ImageFileType sourceFormat)
         {
-            Skip.If(Platform.Type == PlatformType.Android && (
-                        sourceFormat == ImageFileType.Stride || sourceFormat == ImageFileType.Dds || // TODO remove this when mipmap copy is supported on OpenGL by the engine.
-                        sourceFormat == ImageFileType.Tiff), "Unsupported case"); // TODO remove when the tiff format is supported on android.
+            //Skip.If(Platform.Type == PlatformType.Android && (
+            //            sourceFormat == ImageFileType.Stride || sourceFormat == ImageFileType.Dds || // TODO remove this when mipmap copy is supported on OpenGL by the engine.
+            //            sourceFormat == ImageFileType.Tiff), "Unsupported case"); // TODO remove when the tiff format is supported on android.
 
             PerformTest(
                 game =>
@@ -420,7 +420,7 @@ namespace Stride.Graphics.Tests
         {
             Skip.If(sourceFormat == ImageFileType.Wmp, "no input image of this format.");
             Skip.If(sourceFormat == ImageFileType.Wmp || sourceFormat == ImageFileType.Tga, "TODO remove this when Load/Save methods are implemented for those types.");
-            Skip.If(Platform.Type == PlatformType.Android && sourceFormat == ImageFileType.Tiff, "TODO remove this when Load/Save methods are implemented for this type.");
+            //Skip.If(Platform.Type == PlatformType.Android && sourceFormat == ImageFileType.Tiff, "TODO remove this when Load/Save methods are implemented for this type.");
 
             PerformDrawTest(
                 (game, context) =>

@@ -78,15 +78,6 @@ namespace Stride.Graphics.SDL
                 Handle = (IntPtr)info.Info.X11.Window;
                 Display = (IntPtr)info.Info.X11.Display;
             }
-            else if (Core.Platform.Type == Core.PlatformType.Android)
-            {
-                Handle = (IntPtr)info.Info.Android.Window;
-                Surface = (IntPtr)info.Info.Android.Surface;
-            }
-            else if (Core.Platform.Type == Core.PlatformType.macOS)
-            {
-                Handle = (IntPtr)info.Info.Cocoa.Window;
-            }
             Application.RegisterWindow(this);
             Application.ProcessEvents();
         }
