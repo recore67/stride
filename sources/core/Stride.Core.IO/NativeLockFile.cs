@@ -21,15 +21,8 @@ namespace Stride.Core.IO
 
         public static void LockFile(FileStream fileStream, long offset, long count, bool exclusive)
         {
-            if (Platform.Type == PlatformType.Android)
-            {
-                // Android does not support large file and thus is limited to files
-                // whose sizes are less than 2GB.
-                // We substract the offset to not go beyond the 2GB limit.
-                count = (count + offset > int.MaxValue) ? int.MaxValue - offset : count;
-            }
 
-            if (Platform.Type == PlatformType.Windows || Platform.Type == PlatformType.UWP)
+            if (Platform.Type == PlatformType.Windows)
             {
                 var countLow = (uint)count;
                 var countHigh = (uint)(count >> 32);
@@ -68,13 +61,8 @@ namespace Stride.Core.IO
 
         public static void UnlockFile(FileStream fileStream, long offset, long count)
         {
-            if (Platform.Type == PlatformType.Android)
-            {
-                // See comment on `LockFile`.
-                count = (count + offset > int.MaxValue) ? int.MaxValue - offset : count;
-            }
 
-            if (Platform.Type == PlatformType.Windows || Platform.Type == PlatformType.UWP)
+            if (Platform.Type == PlatformType.Windows)
             {
                 var countLow = (uint)count;
                 var countHigh = (uint)(count >> 32);

@@ -84,16 +84,8 @@ namespace Stride.Core.IO
         {
             PlatformFolders.IsVirtualFileSystemInitialized = true;
             // TODO: find a better solution to customize the ApplicationDataDirectory, now we're very limited due to the initialization from a static constructor
-#if STRIDE_PLATFORM_ANDROID
-            ApplicationData = new ZipFileSystemProvider("/data", PlatformAndroid.Context.ApplicationInfo.SourceDir);
-#else
             ApplicationData = new FileSystemProvider("/data", Path.Combine(PlatformFolders.ApplicationDataDirectory, PlatformFolders.ApplicationDataSubDirectory));
-#endif
             ApplicationCache = new FileSystemProvider("/cache", PlatformFolders.ApplicationCacheDirectory);
-#if STRIDE_PLATFORM_IOS
-            // On iOS, we don't want cache folder to be cleared by the OS.
-            ((FileSystemProvider)ApplicationCache).AutoSetSkipBackupAttribute = true;
-#endif
             ApplicationRoaming = new FileSystemProvider("/roaming", PlatformFolders.ApplicationRoamingDirectory);
             ApplicationLocal = new FileSystemProvider("/local", PlatformFolders.ApplicationLocalDirectory);
             ApplicationTemporary = new FileSystemProvider("/tmp", PlatformFolders.ApplicationTemporaryDirectory);

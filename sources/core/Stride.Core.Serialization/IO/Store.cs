@@ -16,8 +16,8 @@ namespace Stride.Core.IO
     public abstract class Store<T> : IDisposable where T : new()
     {
         // macOS doesn't support Lock/Unlock (https://github.com/dotnet/corefx/issues/5964)
-        private static readonly bool LockEnabled = Platform.Type != PlatformType.macOS;
-
+        //private static readonly bool LockEnabled = Platform.Type != PlatformType.macOS;
+        private static readonly bool LockEnabled = Platform.Type is PlatformType.Windows or PlatformType.Linux;
         protected Stream stream;
 
         protected int transaction;

@@ -40,17 +40,6 @@ namespace Stride.Assets.Media
             VideoAsset asset = (VideoAsset)assetItem.Asset;
 
             AVCodecID[] listSupportedCodecNames = null;
-            switch (context.Platform)
-            {
-                case Core.PlatformType.Android:
-                    {
-                        listSupportedCodecNames = new []
-                        {
-                           AVCodecID.AV_CODEC_ID_H264
-                        };
-                        break;
-                    }
-            }
 
             VideoConvertParameters parameter = new VideoConvertParameters(GetAbsolutePath(assetItem, asset.Source), asset, context.Platform);
             result.BuildSteps = new AssetBuildStep(assetItem);

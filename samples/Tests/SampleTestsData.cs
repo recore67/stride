@@ -15,12 +15,6 @@ namespace Stride.Samples.Tests
 {
     class SampleTestsData
     {
-#if TEST_ANDROID
-        public const PlatformType TestPlatform = PlatformType.Android;
-#elif TEST_IOS
-        public const PlatformType TestPlatform = PlatformType.iOS;
-#else
         public const PlatformType TestPlatform = PlatformType.Windows;
-#endif
     }
 }

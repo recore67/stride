@@ -31,25 +31,13 @@ namespace Stride.Data
             var platform = ConfigPlatforms.None;
             switch (Platform.Type)
             {
-                case PlatformType.Shared:
-                    break;
                 case PlatformType.Windows:
                     platform = ConfigPlatforms.Windows;
-                    break;
-                case PlatformType.Android:
-                    platform = ConfigPlatforms.Android;
-                    break;
-                case PlatformType.iOS:
-                    platform = ConfigPlatforms.iOS;
-                    break;
-                case PlatformType.UWP:
-                    platform = ConfigPlatforms.UWP;
                     break;
                 case PlatformType.Linux:
                     platform = ConfigPlatforms.Linux;
                     break;
-                case PlatformType.macOS:
-                    platform = ConfigPlatforms.macOS;
+                case PlatformType.Shared:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

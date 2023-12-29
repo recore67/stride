@@ -43,5 +43,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Stride.Graphics\Stride.Graphics.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WindowsStore\" />
+  </ItemGroup>
   <Import Project="$(StrideSdkTargets)" />
 </Project>

@@ -29,15 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Scripts\RunAndroidTest.bat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\RunAndroidUnitTest.bat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\RunUniqueAndroidTest.bat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Scripts\RunUniqueWindowsTest.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

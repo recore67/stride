@@ -79,9 +79,6 @@ namespace Stride.Core
                     case PlatformType.Linux:
                         platform = "linux";
                         break;
-                    case PlatformType.macOS:
-                        platform = "osx";
-                        break;
                     default:
                         throw new PlatformNotSupportedException();
                 }
@@ -93,9 +90,6 @@ namespace Stride.Core
                         break;
                     case PlatformType.Linux:
                         extension = ".so";
-                        break;
-                    case PlatformType.macOS:
-                        extension = ".dylib";
                         break;
                     default:
                         throw new PlatformNotSupportedException();
