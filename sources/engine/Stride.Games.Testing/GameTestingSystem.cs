@@ -136,18 +136,9 @@ namespace Stride.Games.Testing
             }
         }
 
-#if STRIDE_PLATFORM_IOS
-        [DllImport("__Internal", EntryPoint = "exit")]
-        public static extern void exit(int status);
-#endif
-
         public static void Quit()
         {
-#if STRIDE_PLATFORM_ANDROID
-            global::Android.OS.Process.KillProcess(global::Android.OS.Process.MyPid());
-#elif STRIDE_PLATFORM_IOS
-            exit(0);
-#endif
+
         }
     }
 }

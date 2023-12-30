@@ -30,7 +30,7 @@ namespace Stride.Importer.Assimp
         {
             if (Platform.Type == PlatformType.Windows)
                 NativeLibraryHelper.PreloadLibrary("Assimp64", typeof(MeshConverter));
-            else if (Platform.Type == PlatformType.macOS || Platform.Type == PlatformType.Linux)
+            else if (Platform.Type == PlatformType.Linux)
                 NativeLibraryHelper.PreloadLibrary("libassimp", typeof(MeshConverter));
         }
 

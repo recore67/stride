@@ -13,9 +13,6 @@ using Stride.Rendering;
 using Stride.Shaders;
 using Stride.Graphics.OpenGL;
 using Color4 = Stride.Core.Mathematics.Color4;
-#if STRIDE_PLATFORM_ANDROID
-using Monitor = System.Threading.Monitor;
-#endif
 
 #if STRIDE_UI_SDL
 using Silk.NET.SDL;
@@ -652,11 +649,6 @@ namespace Stride.Graphics
             currentVersion = Adapter.OpenGLVersion;
             renderer = Adapter.OpenGLRenderer;
 
-#if STRIDE_PLATFORM_ANDROID || STRIDE_PLATFORM_IOS
-            //gameWindow.Load += OnApplicationResumed;
-            //gameWindow.Unload += OnApplicationPaused;
-#endif
-
 #if STRIDE_UI_SDL
             gameWindow = (Stride.Graphics.SDL.Window)windowHandle.NativeWindow;
 
@@ -762,11 +754,6 @@ namespace Stride.Graphics
             {
                 asyncCreationLockObject = new object();
             }
-
-#if STRIDE_PLATFORM_ANDROID || STRIDE_PLATFORM_IOS
-            //gameWindow.Load -= OnApplicationResumed;
-            //gameWindow.Unload -= OnApplicationPaused;
-#endif
         }
 
         internal void OnDestroyed()

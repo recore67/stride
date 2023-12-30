@@ -479,39 +479,37 @@ namespace Stride.GameStudio.ViewModels
                             }
                             break;
                         case PlatformType.Linux:
+                            // Sanity check to verify executable was compiled properly
+                            if (string.Equals(Path.GetExtension(assemblyPath), ".exe", StringComparison.InvariantCultureIgnoreCase))
                             {
-                                // Sanity check to verify executable was compiled properly
-                                if (string.Equals(Path.GetExtension(assemblyPath), ".exe", StringComparison.InvariantCultureIgnoreCase))
+                                if (!File.Exists(assemblyPath))
                                 {
-                                    if (!File.Exists(assemblyPath))
-                                    {
-                                        logger.Error(Tr._p("Message", "Unable to reach to output executable: {0}"));
-                                        return false;
-                                    }
-                                }
-
-                                // Ask for credentials if requested, otherwise we use what we have stored.
-                                if (StrideEditorSettings.AskForCredentials.GetValue())
-                                {
-                                    var prompt = ServiceProvider.Get<IStrideDialogService>().CreateCredentialsDialog();
-                                    await prompt.ShowModal();
-                                    if (!prompt.AreCredentialsValid)
-                                    {
-                                        logger.Error(string.Format(Tr._p("Message", "No credentials provided. To allow deployment, add your credentials.")));
-                                        return false;
-                                    }
-                                }
-
-                                // Launch game on remote host
-                                var launchApp = await Task.Run(() => RemoteFacilities.Launch(logger, new UFile(assemblyPath), StrideEditorSettings.UseCoreCLR.GetValue()));
-                                if (!launchApp)
-                                {
-                                    logger.Error(string.Format(Tr._p("Message", "Unable to launch project {0}"), new UFile(assemblyPath).GetFileName()));
+                                    logger.Error(Tr._p("Message", "Unable to reach to output executable: {0}"));
                                     return false;
                                 }
-
-                                break;
                             }
+
+                            // Ask for credentials if requested, otherwise we use what we have stored.
+                            if (StrideEditorSettings.AskForCredentials.GetValue())
+                            {
+                                var prompt = ServiceProvider.Get<IStrideDialogService>().CreateCredentialsDialog();
+                                await prompt.ShowModal();
+                                if (!prompt.AreCredentialsValid)
+                                {
+                                    logger.Error(string.Format(Tr._p("Message", "No credentials provided. To allow deployment, add your credentials.")));
+                                    return false;
+                                }
+                            }
+
+                            // Launch game on remote host
+                            var launchApp = await Task.Run(() => RemoteFacilities.Launch(logger, new UFile(assemblyPath), StrideEditorSettings.UseCoreCLR.GetValue()));
+                            if (!launchApp)
+                            {
+                                logger.Error(string.Format(Tr._p("Message", "Unable to launch project {0}"), new UFile(assemblyPath).GetFileName()));
+                                return false;
+                            }
+
+                            break;
                     }
 
                     logger.Info(string.Format(Tr._p("Message", "Deployment of {0} successful."), projectViewModel.Name));

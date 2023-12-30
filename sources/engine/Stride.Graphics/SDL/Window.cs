@@ -45,17 +45,9 @@ namespace Stride.Graphics.SDL
 #elif STRIDE_GRAPHICS_API_VULKAN
             flags |= WindowFlags.WindowVulkan;
 #endif
-#if STRIDE_PLATFORM_ANDROID || STRIDE_PLATFORM_IOS
-            flags |= WindowFlags.WindowBorderless | WindowFlags.WindowFullscreen | WindowFlags.WindowShown;
-#else
             flags |= WindowFlags.WindowHidden | WindowFlags.WindowResizable;
-#endif
             // Create the SDL window and then extract the native handle.
             sdlHandle = SDL.CreateWindow(title, Sdl.WindowposUndefined, Sdl.WindowposUndefined, 640, 480, (uint)flags);
-
-#if STRIDE_PLATFORM_ANDROID || STRIDE_PLATFORM_IOS
-            GraphicsAdapter.DefaultWindow = sdlHandle;
-#endif
 
             if (sdlHandle == null)
             {

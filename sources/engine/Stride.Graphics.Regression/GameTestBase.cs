@@ -158,22 +158,6 @@ namespace Stride.Graphics.Regression
             set
             {
                 backBufferSizeMode = value;
-#if STRIDE_PLATFORM_ANDROID
-                switch (backBufferSizeMode)
-                {
-                    case BackBufferSizeMode.FitToDesiredValues:
-                        SwapChainGraphicsPresenter.ProcessPresentationParametersOverride = FitPresentationParametersToDesiredValues;
-                        break;
-                    case BackBufferSizeMode.FitToWindowSize:
-                        SwapChainGraphicsPresenter.ProcessPresentationParametersOverride = FitPresentationParametersToWindowSize;
-                        break;
-                    case BackBufferSizeMode.FitToWindowRatio:
-                        SwapChainGraphicsPresenter.ProcessPresentationParametersOverride = FitPresentationParametersToWindowRatio;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-#endif // TODO implement it other mobile platforms
             }
         }
 
