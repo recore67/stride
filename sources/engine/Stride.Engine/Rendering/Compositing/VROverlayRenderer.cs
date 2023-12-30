@@ -3,7 +3,7 @@
 using Stride.Core;
 using Stride.Core.Mathematics;
 using Stride.Graphics;
-using Stride.VirtualReality;
+//using Stride.VirtualReality;
 
 namespace Stride.Rendering.Compositing
 {
@@ -25,7 +25,7 @@ namespace Stride.Rendering.Compositing
         [DataMember(50)]
         public bool FollowsHeadRotation;
 
-        [DataMemberIgnore]
-        public VROverlay Overlay;
+        //[DataMemberIgnore]
+        //public VROverlay Overlay;
     }
 }

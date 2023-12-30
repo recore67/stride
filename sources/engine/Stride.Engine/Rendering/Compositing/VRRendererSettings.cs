@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Stride.Core;
 using Stride.Rendering.Images;
-using Stride.VirtualReality;
+//using Stride.VirtualReality;
 
 namespace Stride.Rendering.Compositing
 {
@@ -44,8 +44,8 @@ namespace Stride.Rendering.Compositing
         [DataMemberIgnore]
         public RenderView[] RenderViews = { new RenderView(), new RenderView() };
 
-        [DataMemberIgnore]
-        public VRDevice VRDevice;
+        //[DataMemberIgnore]
+        //public VRDevice VRDevice;
 
         [DataMemberIgnore]
         public ImageScaler MirrorScaler = new ImageScaler();

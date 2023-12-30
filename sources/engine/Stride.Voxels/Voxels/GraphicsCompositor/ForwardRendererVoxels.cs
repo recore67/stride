@@ -16,7 +16,7 @@ using Stride.Rendering.Images;
 using Stride.Rendering.Lights;
 using Stride.Rendering.Shadows;
 using Stride.Rendering.SubsurfaceScattering;
-using Stride.VirtualReality;
+//using Stride.VirtualReality;
 using Stride.Rendering.Compositing;
 using Stride.Rendering.Voxels.Debug;
 

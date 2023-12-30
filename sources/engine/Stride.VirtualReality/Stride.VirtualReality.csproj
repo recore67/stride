@@ -48,11 +48,5 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="OculusOVR\OculusOVR.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Silk.NET.OpenXR" />
-  </ItemGroup>
   <Import Project="$(StrideSdkTargets)" />
 </Project>
