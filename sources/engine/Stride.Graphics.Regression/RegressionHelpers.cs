@@ -36,7 +36,7 @@ namespace Stride.Graphics.Regression
         SendImage = 1,
         RequestImageComparisonStatus = 2,
     }
-    
+
     public class PlatformPermutator
     {
         public static ImageTestResultConnection GetDefaultImageTestResultConnection()
@@ -49,17 +49,17 @@ namespace Stride.Graphics.Regression
 #if STRIDE_PLATFORM_DESKTOP
             result.Platform = Platform.Type.ToString();
             result.Serial = Environment.MachineName;
-    #if STRIDE_GRAPHICS_API_DIRECT3D12
+#if STRIDE_GRAPHICS_API_DIRECT3D12
             result.DeviceName = "Direct3D12";
-    #elif STRIDE_GRAPHICS_API_DIRECT3D11
+#elif STRIDE_GRAPHICS_API_DIRECT3D11
             result.DeviceName = "Direct3D";
-    #elif STRIDE_GRAPHICS_API_OPENGLES
+#elif STRIDE_GRAPHICS_API_OPENGLES
             result.DeviceName = "OpenGLES";
-    #elif STRIDE_GRAPHICS_API_OPENGL
+#elif STRIDE_GRAPHICS_API_OPENGL
             result.DeviceName = "OpenGL";
-    #elif STRIDE_GRAPHICS_API_VULKAN
+#elif STRIDE_GRAPHICS_API_VULKAN
             result.DeviceName = "Vulkan";
-    #endif
+#endif
 #elif STRIDE_PLATFORM_ANDROID
             result.Platform = "Android";
             result.DeviceName = Android.OS.Build.Manufacturer + " " + Android.OS.Build.Model;
@@ -111,11 +111,7 @@ namespace Stride.Graphics.Regression
 
         public static TestPlatform GetPlatform()
         {
-#if STRIDE_PLATFORM_ANDROID
-            return TestPlatform.Android;
-#elif STRIDE_PLATFORM_IOS
-            return TestPlatform.Ios;
-#elif STRIDE_GRAPHICS_API_NULL
+#if STRIDE_GRAPHICS_API_NULL
             return TestPlatform.None;
 #elif STRIDE_GRAPHICS_API_DIRECT3D
             return TestPlatform.WindowsDx;

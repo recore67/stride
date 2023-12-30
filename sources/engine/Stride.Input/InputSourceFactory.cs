@@ -25,24 +25,6 @@ namespace Stride.Input
                     var sdlContext = (GameContextSDL)context;
                     return new InputSourceSDL(sdlContext.Control);
 #endif
-#if STRIDE_PLATFORM_ANDROID
-                case AppContextType.Android:
-                    var androidContext = (GameContextAndroid)context;
-                    return new InputSourceAndroid(androidContext.Control);
-#endif
-#if STRIDE_PLATFORM_IOS
-                case AppContextType.iOS:
-                    var iosContext = (GameContextiOS)context;
-                    return new InputSourceiOS(iosContext.Control);
-#endif
-#if STRIDE_PLATFORM_UWP
-                case AppContextType.UWPXaml:
-                    var uwpXamlContext = (GameContextUWPXaml)context;
-                    return new InputSourceUWP(Windows.UI.Xaml.Window.Current.CoreWindow);
-                case AppContextType.UWPCoreWindow:
-                    var uwpContext = (GameContextUWPCoreWindow)context;
-                    return new InputSourceUWP(uwpContext.Control);
-#endif
 #if (STRIDE_UI_WINFORMS || STRIDE_UI_WPF)
                 case AppContextType.Desktop:
                     var winformsContext = (GameContextWinforms)context;

@@ -6,11 +6,6 @@
 #define SSLR_DEBUG
 #endif
 
-#if STRIDE_PLATFORM_ANDROID || STRIDE_PLATFORM_IOS
-// Use different render targets formats on mobile
-#define SSLR_MOBILE
-#endif
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
