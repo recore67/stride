@@ -23,7 +23,7 @@ using Stride.Rendering.Fonts;
 using Stride.Rendering.Sprites;
 using Stride.Shaders.Compiler;
 using Stride.Streaming;
-using Stride.VirtualReality;
+//using Stride.VirtualReality;
 
 namespace Stride.Engine
 {
@@ -116,7 +116,7 @@ namespace Stride.Engine
         /// <summary>
         /// Gets the VR Device System.
         /// </summary>
-        public VRDeviceSystem VRDeviceSystem { get; }
+        //public VRDeviceSystem VRDeviceSystem { get; }
 
         /// <summary>
         /// Gets the font system.
@@ -223,8 +223,8 @@ namespace Stride.Engine
             ProfilingSystem = new GameProfilingSystem(Services);
             Services.AddService(ProfilingSystem);
 
-            VRDeviceSystem = new VRDeviceSystem(Services);
-            Services.AddService(VRDeviceSystem);
+            //VRDeviceSystem = new VRDeviceSystem(Services);
+            //Services.AddService(VRDeviceSystem);
 
             // Creates the graphics device manager
             GraphicsDeviceManager = new GraphicsDeviceManager(this);
@@ -385,7 +385,7 @@ namespace Stride.Engine
             GameSystems.Add(Audio);
 
             // Add the VR System
-            GameSystems.Add(VRDeviceSystem);
+            //GameSystems.Add(VRDeviceSystem);
 
             // TODO: data-driven?
             Content.Serializer.RegisterSerializer(new ImageSerializer());
